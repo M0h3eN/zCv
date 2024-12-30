@@ -113,16 +113,16 @@
 \definecolor{yt}{HTML}{c71610}
 
 \ifdefined\@cv@print
-  \colorlet{green}{gray}
-  \colorlet{orange}{gray}
-  \colorlet{purple}{gray}
-  \colorlet{red}{gray}
-  \colorlet{blue}{gray}
-  \colorlet{fillheader}{white}
-  \colorlet{header}{gray}
+	\colorlet{green}{gray}
+	\colorlet{orange}{gray}
+	\colorlet{purple}{gray}
+	\colorlet{red}{gray}
+	\colorlet{blue}{gray}
+	\colorlet{fillheader}{white}
+	\colorlet{header}{gray}
 \else
-  \colorlet{fillheader}{white}
-  \colorlet{header}{gray}
+	\colorlet{fillheader}{white}
+	\colorlet{header}{gray}
 \fi
 \colorlet{textcolor}{gray}
 \colorlet{headercolor}{gray}
@@ -143,10 +143,10 @@
 \defaultfontfeatures{Ligatures=TeX}
 
 \setsansfont{Fira Sans Light}[
-Numbers=OldStyle,
-BoldFont=Fira Sans Medium,
-ItalicFont=Fira Sans Light Italic,
-BoldItalicFont=Fira Sans Medium Italic
+	Numbers=OldStyle,
+	BoldFont=Fira Sans Medium,
+	ItalicFont=Fira Sans Light Italic,
+	BoldItalicFont=Fira Sans Medium Italic
 ]
 
 \newfontfamily\headingfont{Fira Sans Book}
@@ -186,17 +186,17 @@ BoldItalicFont=Fira Sans Medium Italic
 \newcommand*\icon[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=1pt, fill=mainblue,mainblue,text=white] (char) {#1};}}
 
 % Command for printing skill progress bars
-\newcommand\programming[1]{ 
+\newcommand\programming[1]{
 	\renewcommand{\programming}{
 		\begin{tikzpicture}
 			\newcommand\theLengthOfTheList{-1}
 			\foreach [count=\i] \x/\y in {#1}{
-				\draw[fill=maingray,maingray] (0,\i) rectangle (6,\i+0.4);
-				\draw[fill=white,mainColor](0,\i) rectangle (\y,\i+0.4);
-				\node [above right] at (0,\i+0.35) {\x};
-				\global\let\theLengthOfTheList=\i
-			}
-		        \node [above right] at (0, \theLengthOfTheList + 1) {$0 \:  \: \arrow{5.2} \: 10 \: $};
+					\draw[fill=maingray,maingray] (0,\i) rectangle (6,\i+0.4);
+					\draw[fill=white,mainColor](0,\i) rectangle (\y,\i+0.4);
+					\node [above right] at (0,\i+0.35) {\x};
+					\global\let\theLengthOfTheList=\i
+				}
+			\node [above right] at (0, \theLengthOfTheList + 1) {$0 \:  \: \arrow{5.2} \: 10 \: $};
 		\end{tikzpicture}
 	}
 }
@@ -212,107 +212,106 @@ BoldItalicFont=Fira Sans Medium Italic
 %----------------------------------------------------------------------------------------
 
 \newcommand{\makeprofile}{
-  \begin{tikzpicture}[remember picture,overlay]
-      \node [rectangle, fill=sidecolor, anchor=north, minimum width=9cm, minimum height=\paperheight+1cm] (box) at (-5cm,0.5cm){};
-  \end{tikzpicture}
+	\begin{tikzpicture}[remember picture,overlay]
+		\node [rectangle, fill=sidecolor, anchor=north, minimum width=9cm, minimum height=\paperheight+1cm] (box) at (-5cm,0.5cm){};
+	\end{tikzpicture}
 
-  %------------------------------------------------
+	%------------------------------------------------
 
-  \begin{textblock}{6}(0.5, 0.2)
+	\begin{textblock}{6}(0.5, 0.2)
 
-    %------------------------------------------------
-    
-        \vspace{4mm}
-    {\Huge\color{lightMainColor}\cvname}
-    
-    \vspace{2mm}
+		%------------------------------------------------
 
-    %------------------------------------------------
-    
-    {\Large\color{black!80}\cvjobtitle}
+		\vspace{4mm}
+		{\Huge\color{lightMainColor}\cvname}
 
-    %------------------------------------------------
-    
-    \vspace{4mm}
-    \renewcommand{\arraystretch}{2}
-    \begin{tabular}{p{1cm} @{\hskip 0.5cm}p{5cm}}
-      \ifthenelse{\equal{\cvnumberphone}{}}{}{
-      		{$
-              \begin{array}{l}
-              \hspace{4mm} \Huge \textnormal{\faMobile} 
-              \end{array}
-              $} 
-            & \cvnumberphone\\}
-            
-      \ifthenelse{\equal{\cvsite}{}}{}{
-            {$
-              \begin{array}{l}
-              \hspace{2.8mm} \huge \textnormal{\textcolor{test}{\faGlobe}}
-              \end{array}
-              $} 
-            & \href{http://\cvsite}{\cvsite} \\}
-      \ifthenelse{\equal{\cvmail}{}}{}{
-            {$
-              \begin{array}{l}
-              \hspace{2.5mm} \huge \textnormal{\textcolor{yt}{\faEnvelopeO}}
-              \end{array}
-              $} 
-            & \href{mailto:\cvmail @gmail.com}{\cvmail} \\}
-      
-       \ifthenelse{\equal{\cvlinkedin}{}}{}{
-            {$
-              \begin{array}{l}
-              \hspace{3mm} \huge \textnormal{\textcolor{linkedin}{\faLinkedin}}
-              \end{array}
-              $} & \href{https://www.linkedin.com/in/\cvlinkedin}{\cvlinkedin} \\
-            }  
-        \ifthenelse{\equal{\cvgithub}{}}{}{
-            {$
-              \begin{array}{l}
-              \hspace{3mm} \huge \textnormal{\faGithub}
-              \end{array}
-              $} & \href{https://www.github.com/\cvgithub}{\cvgithub} \\
-            }
-        \ifthenelse{\equal{\cvaddress}{}}{}{
-        	{$
-        		\begin{array}{l}
-        			\hspace{2.5mm} \huge \textnormal{\textcolor{yt}{\faHome}}
-        		\end{array}
-        		$} 
-        	& {\cvaddress} \\}
-        
-         \ifthenelse{\equal{\cvtwitter}{}}{}{
-        	{$
-        		\begin{array}{l}
-        			\hspace{2.5mm} \huge \textnormal{\textcolor{yt}{\faTwitter}}
-        		\end{array}
-        		$} 
-        	& {\cvtwitter} \\}
-            
-    \end{tabular}
+		\vspace{2mm}
 
-    %------------------------------------------------
-    \vspace{4mm}
-    \profilesection{Skills}{4cm}
-    
-    {\large \textbf{Overview}}
+		%------------------------------------------------
 
-	\skills
-        
-        %------------------------------------------------
-        
-        \vspace{3mm}
-       
-	 {\large \textbf{Programming}} 
+		{\Large\color{black!80}\cvjobtitle}
 
-		 \programming
-         
-        \vspace{4mm}
-        %\profilesection{Projects}{3cm} 
-        
-     %   \projects
-      
-  \end{textblock}
+		%------------------------------------------------
+
+		\vspace{4mm}
+		\renewcommand{\arraystretch}{2}
+		\begin{tabular}{p{1cm} @{\hskip 0.5cm}p{5cm}}
+			\ifthenelse{\equal{\cvnumberphone}{}}{}{
+				{$
+							\begin{array}{l}
+								\hspace{4mm} \Huge \textnormal{\faMobile}
+							\end{array}
+						$}
+			   & \cvnumberphone\\}
+
+			\ifthenelse{\equal{\cvsite}{}}{}{
+				{$
+							\begin{array}{l}
+								\hspace{2.8mm} \huge \textnormal{\textcolor{test}{\faGlobe}}
+							\end{array}
+						$}
+			   & \href{http://\cvsite}{\cvsite} \\}
+			\ifthenelse{\equal{\cvmail}{}}{}{
+				{$
+							\begin{array}{l}
+								\hspace{2.5mm} \huge \textnormal{\textcolor{yt}{\faEnvelopeO}}
+							\end{array}
+						$}
+			   & \href{mailto:\cvmail @gmail.com}{\cvmail} \\}
+
+			\ifthenelse{\equal{\cvlinkedin}{}}{}{
+				{$
+							\begin{array}{l}
+								\hspace{3mm} \huge \textnormal{\textcolor{linkedin}{\faLinkedin}}
+							\end{array}
+			$} & \href{https://www.linkedin.com/in/\cvlinkedin}{\cvlinkedin}         \\
+			}
+			\ifthenelse{\equal{\cvgithub}{}}{}{
+				{$
+							\begin{array}{l}
+								\hspace{3mm} \huge \textnormal{\faGithub}
+							\end{array}
+			$} & \href{https://www.github.com/\cvgithub}{\cvgithub}                  \\
+			}
+			\ifthenelse{\equal{\cvaddress}{}}{}{
+				{$
+							\begin{array}{l}
+								\hspace{2.5mm} \huge \textnormal{\textcolor{yt}{\faHome}}
+							\end{array}
+						$}
+			   & {\cvaddress} \\}
+
+			\ifthenelse{\equal{\cvtwitter}{}}{}{
+				{$
+							\begin{array}{l}
+								\hspace{2.5mm} \huge \textnormal{\textcolor{yt}{\faTwitter}}
+							\end{array}
+						$}
+			   & {\cvtwitter} \\}
+		\end{tabular}
+
+		%------------------------------------------------
+		\vspace{4mm}
+		\profilesection{Skills}{4cm}
+
+		{\large \textbf{Overview}}
+
+		\skills
+
+		%------------------------------------------------
+
+		\vspace{3mm}
+
+		{\large \textbf{Programming}}
+
+		\programming
+
+		\vspace{4mm}
+		%\profilesection{Projects}{3cm} 
+
+		%   \projects
+
+	\end{textblock}
 }
 
 
@@ -334,7 +333,7 @@ BoldItalicFont=Fira Sans Medium Italic
 % New environment for the long list
 \newenvironment{twenty}{%
 	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll}
-}{%
+		}{%
 	\end{tabular*}
 }
 
@@ -344,8 +343,8 @@ BoldItalicFont=Fira Sans Medium Italic
 		\textbf{#3}% 
 		\hfill%
 		{\footnotesize#4}%
-        }\\%
-    #2&\parbox[t]{0.83\textwidth}{%
+	}\\%
+	#2&\parbox[t]{0.83\textwidth}{%
 		\ifblank{#5}{}{#5 \\}
 		#6%
 	}\\
@@ -360,7 +359,7 @@ BoldItalicFont=Fira Sans Medium Italic
 % New environment for the small list
 \newenvironment{twentyshort}{%
 	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll}
-}{%
+		}{%
 	\end{tabular*}
 }
 
@@ -386,24 +385,24 @@ BoldItalicFont=Fira Sans Medium Italic
 
 \usepackage{smartdiagram}
 \smartdiagramset{
-    bubble center node font = \footnotesize,
-    bubble node font = \footnotesize,
-    % specifies the minimum size of the bubble center node
-    bubble center node size = 0.55cm,
-    %  specifies the minimum size of the bubbles
-    bubble node size = 0.65cm,
-    % specifies which is the distance among the bubble center node and the other bubbles
-    distance center/other bubbles = 0.65cm,
-    % sets the distance from the text to the border of the bubble center node
-    distance text center bubble = 0.5cm,
-    % set center bubble color
-    bubble center node color = pblue,
-    % define the list of colors usable in the diagram
-    set color list = {lightgray, materialcyan, orange, green, materialorange, materialteal, materialamber, materialindigo, materialgreen, materiallime},
-    % sets the opacity at which the bubbles are shown
-    bubble fill opacity = 0.6,
-    % sets the opacity at which the bubble text is shown
-    bubble text opacity = 1,
+	bubble center node font = \footnotesize,
+	bubble node font = \footnotesize,
+	% specifies the minimum size of the bubble center node
+	bubble center node size = 0.55cm,
+	%  specifies the minimum size of the bubbles
+	bubble node size = 0.65cm,
+	% specifies which is the distance among the bubble center node and the other bubbles
+	distance center/other bubbles = 0.65cm,
+	% sets the distance from the text to the border of the bubble center node
+	distance text center bubble = 0.5cm,
+	% set center bubble color
+	bubble center node color = pblue,
+	% define the list of colors usable in the diagram
+	set color list = {lightgray, materialcyan, orange, green, materialorange, materialteal, materialamber, materialindigo, materialgreen, materiallime},
+	% sets the opacity at which the bubbles are shown
+	bubble fill opacity = 0.6,
+	% sets the opacity at which the bubble text is shown
+	bubble text opacity = 1,
 }
 
 
@@ -458,20 +457,20 @@ BoldItalicFont=Fira Sans Medium Italic
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % For source code
 \setmonofont{Source Code Pro Light}[
-BoldFont=Source Code Pro,
+	BoldFont=Source Code Pro,
 ]
 % Normal font
 \setsansfont{Fira Sans Light}[
-Numbers=OldStyle,
-BoldFont=Fira Sans Medium,
-ItalicFont=Fira Sans Light Italic,
-BoldItalicFont=Fira Sans Medium Italic
+	Numbers=OldStyle,
+	BoldFont=Fira Sans Medium,
+	ItalicFont=Fira Sans Light Italic,
+	BoldItalicFont=Fira Sans Medium Italic
 ]
 % Normal font
 \setmainfont{Fira Sans Light}[
-BoldFont=Fira Sans Medium,
-ItalicFont=Fira Sans Light Italic,
-BoldItalicFont=Fira Sans Medium Italic
+	BoldFont=Fira Sans Medium,
+	ItalicFont=Fira Sans Light Italic,
+	BoldItalicFont=Fira Sans Medium Italic
 ]
 \newfontfamily{\normalFont}{Fira Sans Light}
 \newfontfamily{\chapterNumberFont}{Butler Bold}%{London}%{DiamondsThinItalic}%Abril Fatface}
@@ -531,18 +530,18 @@ BoldItalicFont=Fira Sans Medium Italic
 	\strictpagechecktrue
 	\checkoddpage
 	\ifoddpage%
-	\AddToShipoutPictureBG*{
-		\begin{tikzpicture}[remember picture, overlay]
-		\fill[fill=#1] (current page.south east) rectangle ++(-\bigVerticalLineWidth, \paperheight);
-		\end{tikzpicture}
-	}
+		\AddToShipoutPictureBG*{
+			\begin{tikzpicture}[remember picture, overlay]
+				\fill[fill=#1] (current page.south east) rectangle ++(-\bigVerticalLineWidth, \paperheight);
+			\end{tikzpicture}
+		}
 	\else%
-	
-	\AddToShipoutPictureBG*{
-		\begin{tikzpicture}[remember picture, overlay]
-		\fill[fill=#1] (current page.south west) rectangle ++(\bigVerticalLineWidth, \paperheight);
-		\end{tikzpicture}
-	}
+
+		\AddToShipoutPictureBG*{
+			\begin{tikzpicture}[remember picture, overlay]
+				\fill[fill=#1] (current page.south west) rectangle ++(\bigVerticalLineWidth, \paperheight);
+			\end{tikzpicture}
+		}
 	\fi%
 }
 
@@ -563,49 +562,49 @@ BoldItalicFont=Fira Sans Medium Italic
 	\strictpagechecktrue%
 	\checkoddpage%
 	\ifoddpage%
-	#1%
+		#1%
 	\else%
-	#2%
+		#2%
 	\fi%
 }
 \DeclareDocumentCommand{\alignLeftOrRight}{O{} O{}}{%
 	\strictpagechecktrue%
 	\checkoddpage%
 	\ifoddpage%
-	\begin{FlushRight}%
+		\begin{FlushRight}%
 		#1%
-		\else%
+	\else%
 		\begin{FlushLeft}%
 			#2%
 			\fi%
-		}
-		\DeclareDocumentCommand{\alignLeftOrRightEnd}{O{} O{}}{%
+			}
+			\DeclareDocumentCommand{\alignLeftOrRightEnd}{O{} O{}}{%
 			\strictpagechecktrue%
 			\checkoddpage%
 			\ifoddpage%
-		\end{FlushRight}%
-		#1%
-		\else%
-	\end{FlushLeft}%
-	#2%
+			\end{FlushRight}%
+			#1%
+			\else%
+		\end{FlushLeft}%
+		#2%
 	\fi%
 }
 \DeclareDocumentCommand{\alignLeftOrRightStandalone}{}{
 	\strictpagechecktrue%
 	\checkoddpage%
 	\ifoddpage%
-	\FlushRight%
+		\FlushRight%
 	\else%
-	\FlushLeft%
+		\FlushLeft%
 	\fi%
 }
 \DeclareDocumentCommand{\alignLeftOrRightStandaloneInversed}{}{
 	\strictpagechecktrue%
 	\checkoddpage%
 	\ifoddpage%
-	\FlushLeft%
+		\FlushLeft%
 	\else%
-	\FlushRight%
+		\FlushRight%
 	\fi%
 }
 \newcommand{\noHyphen}{\hyphenpenalty10000\exhyphenpenalty10000\righthyphenmin62\lefthyphenmin62}
@@ -651,14 +650,14 @@ BoldItalicFont=Fira Sans Medium Italic
 { % code before
 	\isOddPage{
 		\begin{FlushRight}
-			\vspace*{-1.5mm}
+		\vspace*{-1.5mm}
 	}{
 		\begin{FlushLeft}
 		\vspace*{-10mm}
 	}
 	\fontsize{1.8cm}{2.16cm}\chapterFont\selectfont%
 }[ % code after
-\alignLeftOrRightEnd
+	\alignLeftOrRightEnd
 ]
 
 \titleformat{name=\chapter, numberless}[block]
@@ -667,9 +666,9 @@ BoldItalicFont=Fira Sans Medium Italic
 {0pt} % sep
 { % code before
 	\alignLeftOrRight
-	\fontsize{1.8cm}{2.16cm}\chapterFont\selectfont	
+	\fontsize{1.8cm}{2.16cm}\chapterFont\selectfont
 }[ % code after
-\alignLeftOrRightEnd
+	\alignLeftOrRightEnd
 ]
 
 \renewcommand{\thesection}{\arabic{section}}
@@ -743,50 +742,50 @@ BoldItalicFont=Fira Sans Medium Italic
 	\null
 	\tikzset{
 		fitting node/.style={
-			inner sep=0pt,
-			fill=none,
-			draw=none,
-			reset transform,
-			fit={(\pgf@pathminx,\pgf@pathminy) (\pgf@pathmaxx,\pgf@pathmaxy)}
-		},
+				inner sep=0pt,
+				fill=none,
+				draw=none,
+				reset transform,
+				fit={(\pgf@pathminx,\pgf@pathminy) (\pgf@pathmaxx,\pgf@pathmaxy)}
+			},
 		reset transform/.code={\pgftransformreset}
 	}
 	\begin{tikzpicture}[remember picture, overlay]
-	% some coordinates
-	\coordinate[yshift=-\titlepageHeaderHeight](rectangleEnd) at (current page.north east);
-	\coordinate[xshift=-4cm](dateCenter) at (rectangleEnd);
-	
-	% draw an image if one was provided
-	\IfValueT{#1}{\draw (current page.center)[yshift=-\titlepageHeaderHeight/2] node[align=center, inner sep=0mm, anchor=center] {{\includegraphics[height=\paperheight-\titlepageHeaderHeight]{#1}}};}
-	
-	% red rectangle
-	\fill[mainColor] (current page.north west) rectangle (rectangleEnd) node[fitting node] (headerRectangle) {};
-	
-	% title page text (title rule and subtitle)
-	% title
-	\draw (\leftmargin-9mm, -3cm) node[align=left, inner sep=0mm, anchor=south west, font=\fontsize{1.4cm}{1.2cm}\selectfont\chapterFont] (title) {
-		\hspace*{-.8mm}\begin{varwidth}{\textwidth}%
-		\FlushLeft%
-		\noHyphen\IfValueT{#2}{#2}\IfNoValueT{#2}{\runtitle}%
-		\end{varwidth}%
-	};
-	% rule
-	\getwidthofnode{\titlepageTitleLength}{title}
-	\node[inner xsep=0mm, text width=\titlepageTitleLength+2mm, anchor=north west, yshift=-2mm, xshift=-1mm] (rule) at (title.south west) {{\color{White}\rule{\linewidth}{.6mm}}};
-	% author
-	\node[inner xsep=0mm, text width=\linewidth, anchor=north west, yshift=-2mm] (subtitle) at (rule.south west) {
-		{\fontsize{.6cm}{.72cm}\selectfont\color{White}
-			\@subtitle}% \runauthor
-	};
-	
-	% Date
-	\hexagon[mainColor]{dateCenter}{\dateRadius}
-	\hexagon[darkMainColor]{dateCenter}{\dateRadius}[path fading=south, fading angle=-60]
-	\draw(dateCenter) node[text width=1.3cm, align=center] (day) {\fontsize{1cm}{1.2cm}\selectfont\textbf{\dayNumberOnTwoDigit\today}};
-	\draw(dateCenter) node [node distance = .75cm, above of=day, text width=1.3cm, align=center](month) {\fontsize{.5cm}{1.2cm}\selectfont\textsc{\addfontfeatures{LetterSpace=10.0}\monthThreeLetterName}};
-	\draw(dateCenter) node[node distance = .65cm, below of=day, text width=1.3cm, align=center] (year) {\fontsize{.4cm}{1.2cm}\selectfont{\addfontfeatures{LetterSpace=20.0}\the\year} };
-	% author
-    \IfNoValueT{#2}{\node[anchor=south east] at ($(current page.south east)+(-6mm, 6mm)$) {\fontspec{Canter Light}\fontsize{10mm}{6mm}\color{White}\selectfont \runauthor};}
+		% some coordinates
+		\coordinate[yshift=-\titlepageHeaderHeight](rectangleEnd) at (current page.north east);
+		\coordinate[xshift=-4cm](dateCenter) at (rectangleEnd);
+
+		% draw an image if one was provided
+		\IfValueT{#1}{\draw (current page.center)[yshift=-\titlepageHeaderHeight/2] node[align=center, inner sep=0mm, anchor=center] {{\includegraphics[height=\paperheight-\titlepageHeaderHeight]{#1}}};}
+
+		% red rectangle
+		\fill[mainColor] (current page.north west) rectangle (rectangleEnd) node[fitting node] (headerRectangle) {};
+
+		% title page text (title rule and subtitle)
+		% title
+		\draw (\leftmargin-9mm, -3cm) node[align=left, inner sep=0mm, anchor=south west, font=\fontsize{1.4cm}{1.2cm}\selectfont\chapterFont] (title) {
+			\hspace*{-.8mm}\begin{varwidth}{\textwidth}%
+				\FlushLeft%
+				\noHyphen\IfValueT{#2}{#2}\IfNoValueT{#2}{\runtitle}%
+			\end{varwidth}%
+		};
+		% rule
+		\getwidthofnode{\titlepageTitleLength}{title}
+		\node[inner xsep=0mm, text width=\titlepageTitleLength+2mm, anchor=north west, yshift=-2mm, xshift=-1mm] (rule) at (title.south west) {{\color{White}\rule{\linewidth}{.6mm}}};
+		% author
+		\node[inner xsep=0mm, text width=\linewidth, anchor=north west, yshift=-2mm] (subtitle) at (rule.south west) {
+			{\fontsize{.6cm}{.72cm}\selectfont\color{White}
+					\@subtitle}% \runauthor
+		};
+
+		% Date
+		\hexagon[mainColor]{dateCenter}{\dateRadius}
+		\hexagon[darkMainColor]{dateCenter}{\dateRadius}[path fading=south, fading angle=-60]
+		\draw(dateCenter) node[text width=1.3cm, align=center] (day) {\fontsize{1cm}{1.2cm}\selectfont\textbf{\dayNumberOnTwoDigit\today}};
+		\draw(dateCenter) node [node distance = .75cm, above of=day, text width=1.3cm, align=center](month) {\fontsize{.5cm}{1.2cm}\selectfont\textsc{\addfontfeatures{LetterSpace=10.0}\monthThreeLetterName}};
+		\draw(dateCenter) node[node distance = .65cm, below of=day, text width=1.3cm, align=center] (year) {\fontsize{.4cm}{1.2cm}\selectfont{\addfontfeatures{LetterSpace=20.0}\the\year} };
+		% author
+		\IfNoValueT{#2}{\node[anchor=south east] at ($(current page.south east)+(-6mm, 6mm)$) {\fontspec{Canter Light}\fontsize{10mm}{6mm}\color{White}\selectfont \runauthor};}
 	\end{tikzpicture}
 	\null
 	\vfill
@@ -834,23 +833,23 @@ BoldItalicFont=Fira Sans Medium Italic
 %		Numbers typesetting
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \DeclareDocumentCommand{\bigNumber}{o m O{\lightMainColor}}{% style line_color number
-	{\heavyFont\LARGE{\IfValueT{#1}{#1}#2}}\\{#3\rule{1.5cm}{2mm}}% \contourlength{.4pt}\contournumber{50}\contour{mainColor}
+{\heavyFont\LARGE{\IfValueT{#1}{#1}#2}}\\{#3\rule{1.5cm}{2mm}}% \contourlength{.4pt}\contournumber{50}\contour{mainColor}
 }
 
 \DeclareDocumentCommand{\sideNumber}{O{mainColor} o m O{mainColor} m}{% sidenotemark_color number_style number line_color text
-	{%
+{%
 		\hypersetup{linkcolor=mainColor}%
 		\normalFont%
 		\footnotemark%
 	}%
-	\ignorespaces%
-	\marginElement{%
-		{\heavyFont\fontsize{1.2cm}{1.44cm}\selectfont\color{darkGrey}{\IfValueT{#2}{#2}#3}}\\%
-		{\color{#4}\rule{1.5cm}{2mm}}\\%
-		\sideMark[#1]{\thefootnote}
-		\ignorespaces%
-		#5%
-	}%
+\ignorespaces%
+\marginElement{%
+{\heavyFont\fontsize{1.2cm}{1.44cm}\selectfont\color{darkGrey}{\IfValueT{#2}{#2}#3}}\\%
+{\color{#4}\rule{1.5cm}{2mm}}\\%
+\sideMark[#1]{\thefootnote}
+\ignorespaces%
+#5%
+}%
 }
 
 
@@ -859,20 +858,20 @@ BoldItalicFont=Fira Sans Medium Italic
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\initauthor}{
-\makeatletter
-\let\runauthor\@author
-\let\runtitle\@title
-\makeatother
+	\makeatletter
+	\let\runauthor\@author
+	\let\runtitle\@title
+	\makeatother
 }
 
 \newcommand{\initcv}{
 	\clearpage
 	\thispagestyle{empty}
-		\newgeometry{a4paper,left=7.4cm,top=0.005mm,right=1cm,bottom=0.005mm,nohead,nofoot}
-	
+	\newgeometry{a4paper,left=7.4cm,top=0.005mm,right=1cm,bottom=0.005mm,nohead,nofoot}
+
 	\setlength{\TPHorizModule}{1cm} % Left margin
 	\setlength{\TPVertModule}{1cm} % Top margin
-	
+
 	\pgfmathsetlength{\imagewidth}{5cm}
 	\pgfmathsetlength{\imagescale}{\imagewidth/600}
 	\setlength{\parindent}{0pt} % Disable paragraph indentation	
