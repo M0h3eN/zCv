@@ -1,4 +1,4 @@
-FROM alpine:3.21.0 as base
+FROM alpine:3.21.3 as base
 
 # upgrade system
 RUN apk upgrade --update && apk add --no-cache perl perl-lwp-protocol-https wget fontconfig
@@ -30,7 +30,7 @@ COPY classes texlive/texmf-local/tex/latex/local/
 # Adding required fonts
 COPY fonts /usr/share/fonts/
 
-FROM alpine:3.21.0
+FROM alpine:3.21.3
 RUN apk upgrade --update && apk add --no-cache perl fontconfig
 
 COPY --from=base /TeX /TeX
