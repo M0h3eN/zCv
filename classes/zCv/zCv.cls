@@ -201,11 +201,11 @@
 	}
 }
 \newcommand{\setPlFont}{\fontspec{Vollkorn}\color{Black}}
-%\newcommand\projects[1]{ 
-%	\renewcommand{\projects}{
-%		{#1}
-%	}
-%}
+\newcommand\education[1]{
+	\renewcommand{\education}{
+		{#1}
+	}
+}
 
 %----------------------------------------------------------------------------------------
 %  SIDEBAR LAYOUT
@@ -307,9 +307,9 @@
 		\programming
 
 		\vspace{4mm}
-		%\profilesection{Projects}{3cm} 
-
-		%   \projects
+		\profilesection{Education}{2.5cm}
+		{\newline}
+		\education
 
 	\end{textblock}
 }
@@ -395,12 +395,12 @@
 	distance center/other bubbles = 0.65cm,
 	% sets the distance from the text to the border of the bubble center node
 	distance text center bubble = 0.5cm,
-	% set center bubble color
-	bubble center node color = pblue,
+	% set center mainColor(Red) color
+	bubble center node color = mainColor,
 	% define the list of colors usable in the diagram
 	set color list = {lightgray, materialcyan, orange, green, materialorange, materialteal, materialamber, materialindigo, materialgreen, materiallime},
 	% sets the opacity at which the bubbles are shown
-	bubble fill opacity = 0.6,
+	bubble fill opacity = 0.5,
 	% sets the opacity at which the bubble text is shown
 	bubble text opacity = 1,
 }
